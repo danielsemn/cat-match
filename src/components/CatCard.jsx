@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 
-function CatCard() {
+function CatCard({ onLike }) {
   const [catUrl, setCatUrl] = useState('')
   const [loading, setLoading] = useState(true)
 
@@ -21,6 +21,13 @@ function CatCard() {
     mostrarGato()
   }, [])
 
+  function handleCurtir() {
+    if (catUrl && onLike) {
+      onLike(catUrl)
+      mostrarGato()       
+    }
+  }
+
   return (
     <div className="catCard">
       {loading ? (
@@ -28,8 +35,11 @@ function CatCard() {
       ) : (
         <img src={catUrl} alt="Gato aleatório" />
       )}
-      <br />
-      <button onClick={mostrarGato}>Buscar outro gato</button>
+      
+      <div className="botoes-acao">
+        <button onClick={mostrarGato}>Passar ❌</button>
+        <button onClick={handleCurtir} disabled={loading}>Curtir ❤️</button>
+      </div>
     </div>
   )
 }

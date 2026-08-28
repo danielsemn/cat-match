@@ -1,18 +1,8 @@
-
 function Header() {
-  // const [count, setCount] = useState(0)
-
   return (
-    <header>
-      <img src="" alt="Foto da Logo" />
-        <nav>
-            <ul>
-              <li>Nome da página</li>
-              <li> Home </li>
-              <li>Sobre</li>
-              <li>Modo Escuro</li>
-            </ul>
-        </nav>
+    <header className="header">
+      <h1 className="title">CatMatch 🐱</h1>
+      <h2 className="subtitle">Monte sua galeria de GATOS</h2>
     </header>
   )
 }
